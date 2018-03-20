@@ -1,0 +1,109 @@
+{% if message %}
+<script>
+	alert('{{ message }}');
+</script>
+{% endif %}
+
+{% if request.user.username == "dcsa@puchd.com"  %}
+
+	<script>
+
+	document.getElementById("index_login_btn").disabled = true;
+
+	</script>
+
+{% endif %}
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <title> Epsilon | 2k18 </title>
+     <!-- <link rel="stylesheet" href="./css/style.css"> -->
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1> <span class="highlight">EPSILON</span> 2k18</h1>
+        </div>
+        <nav>
+          <ul>
+            <li class="current"><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'events' %}">Events</a></li>
+            <li><a href="{% url 'registrationform' %}">Register</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="showcase">
+      <div class="container">
+        <h1 style="font-size : 70px"> EPSILON 2k18</h1>
+        <p style="font-size : 40px ; font-variant : small-caps"> Department of Computer Science and Applications</p>
+				<p style="font-size : 40px ; font-variant : small-caps"> 24 MARCH 2018  <p>
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <div class="container">
+        <h1> Login To Website </h1>
+
+        <form method="post">
+        {% csrf_token %}
+
+				{% if request.user.is_active %}
+					<span id="displayHi"> Hi - </span> <span id="displayName">{{  user.first_name }} &nbsp; </span>
+				{% endif %}
+        <button type="button" class="button_1" id="index_login_btn">
+          {% if request.user.is_active %}
+          <a href="{% url 'logoutG' %}">
+            LOGOUT
+          {% else %}
+          <a href="{% url 'loginform' %}">
+            LOGIN
+          {% endif %}
+
+          </a>
+        </button>
+        </form>
+
+      </div>
+    </section>
+
+    <section id="boxes">
+      <div class="container">
+        <div class="box">
+          {% load static %}
+            <img src="{% static 'img/logo_html.png' %}">
+              <!-- <img src="./img/logo_html.png"> -->
+          <h3> TECHNICAL EVENTS </h3>
+          <p> Get ready to showcase your technical capabilities through this esoteric platform with variety of specialized events to choose from. </p>
+        </div>
+        <div class="box">
+          {% load static %}
+            <img src="{% static 'img/logo_css.png' %}">
+          <!-- <img src="./img/logo_css.png"> -->
+          <h3> NON-TECHNICAL EVENTS </h3>
+          <p> Not interested in Technical stuff? No worries, we've got you covered with many more interesting and creative events. </p>
+        </div>
+        <div class="box">
+          {% load static %}
+            <img src="{% static 'img/logo_brush.png' %}">
+          <!-- <img src="./img/logo_brush.png"> -->
+          <h3> ABOUT EPSILON </h3>
+          <p> Epsilon, must seen like another greek letter but at DCSA it stands for much more. It's an annual fiesta which embarks to bring out the best of those, who are a part of DCSA and those in its vicinity.  </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+			DEPARTMENT OF COMPUTER SCIENCE AND APPLICATIONS (DCSA)<br>
+			PANJAB UNIVERSITY CHANDIGARH
+    </footer>
+
+  </body>
+</html>

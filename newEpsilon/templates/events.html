@@ -1,0 +1,1088 @@
+{% if message %}
+<script>
+	alert('{{ message }}');
+</script>
+{% endif %}
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    {% load static %}
+		<link rel="stylesheet" href="{% static 'css/style.css'%}">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<title> Acme Web Design | Services </title>
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+  </head>
+  <body>
+    <header>
+  		<div id="eventContainer">
+  			<div id="branding">
+  				<h1 id="logo"> <span class="highlight">EPSILON</span> 2k18</h1>
+  			</div>
+  			<nav id="specific">
+  				<ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="current"><a href="{% url 'events' %}">Events</a></li>
+            <li><a href="{% url 'registrationform' %}">Register</a></li>
+  				</ul>
+  			</nav>
+  		</div>
+  	</header>
+
+
+    <section id="newsletter">
+      <div class="container">
+        <h1> Login To Website </h1>
+				<form method="post">
+        {% csrf_token %}
+
+				{% if request.user.is_active %}
+					<span id="displayHi"> Hi - </span> <span id="displayName">{{  user.first_name }} &nbsp; </span>
+				{% endif %}
+        <button type="button" class="button_1">
+          {% if request.user.is_active %}
+          <a href="{% url 'logoutG' %}">
+            LOGOUT
+          {% else %}
+          <a href="{% url 'loginform' %}">
+            LOGIN
+          {% endif %}
+          </a>
+        </button>
+        </form>
+
+      </div>
+		</section>
+		<br>
+<!-- start here -->
+<div class="container">
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#instruction">BASIC INSTRUCTIONS</button>
+	<div class="modal fade" id="instruction" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">
+						<b>GENERAL INSTRUCTION</h4>
+				</div>
+				<div class="modal-body">
+					<ol type="1" id="rules">
+<li> Registrations will start from March 20th and will end on March 23rd,2018 at 5:00 pm. </li>
+<li> The college students must register themselves at epsilon.puchd.ac.in through official authority. Individual registrations
+	are not allowed. All the Participants are required to confirm their registration on 24th March at 9:00 am. </li>
+<li> After the confirmation of registration, the participants are required to report for the events at the allocated venue 15
+	minutes before the start of the event. </li>
+<li> Participants must bring their valid college identity-cards with them. </li>
+<li> The department will not bear any conveyance of the participants. The Judges verdict will be claimed as final. </li>
+<li> The rules can be changed on the spot at the discretion of judges and DCSA authority.
+</li>
+<li> The inauguration of the IT Fest will be held at 9.15 am in the Auditorium. </li>
+<li> Prize distribution will be held at the end of IT Fest. </li>
+<li> Coupons for refreshment will be given at the time of registration to the participants.</li>
+					</ol>
+					<br>
+<p style="font-variant : small-caps; color : red">Prize Distribution will take after 5 pm.</p>
+<br>
+					<span id="coordinator"> CONTACT US </span>
+					<br>
+					<table cellspacing="5px">
+						<tr>
+							<td>Deepak Jain &nbsp;</td>
+							<td> - </td>
+							<td>&nbsp; 9467012482</td>
+						</tr>
+						<tr>
+							<td>Ramandeep Kaur &nbsp;</td>
+							<td> - </td>
+							<td>&nbsp; 8968755377</td>
+						</tr>
+						<tr>
+							<td>Sikander Singh &nbsp;</td>
+							<td> - </td>
+							<td>&nbsp; 7696263772</td>
+						</tr>
+					</table>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end here --><br>
+
+    <section id="main"><div class="container"><article id="main-col">
+          <h1 class="page-title"> NON-TECHNICAL EVENTS </h1>
+          <ul id="services">
+						<!-- 1 -->
+            <li>
+              <h3>Panchvi Pass </h3>
+							<br>
+							<p><b> TIME :  12:30 pm</p>
+              <p> VENUE :  R.No.309</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal1">DETAILS</button>
+    <div class="modal fade" id="myModal1" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+												<li>Only team entries are allowed.</li>
+												<li>A team shall consist of Max 2 persons.</li>
+												<li>Participants shall not be allowed to use any electronic instruments. </li>
+												<li>The decision of the quiz-master will be final and will not be subjected to any change. </li>
+												<li>The question shall be in the form of multiple choice/true false or specific –answers question. </li>
+												<li>Elimination Round - In case of more than 4 team registration a set of question paper given containing 20 MCQs and time limit
+													15 minutes. </li>
+												<li>Final Round-A question will be asked to a team and if they are unable to answer it will be passed to the next team </li>
+												<li>Answering time is only 30 seconds.</li>
+												<li>Team discussion is allowed. </li>
+												<li>SURPRISE ROUND IN CASE OF TIE IN THE FINAL ROUND.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Vandana &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 7307231720</td>
+								</tr>
+								<tr>
+									<td>Akashdeep &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8437206068</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+							<form method="post" action="{% url 'save_record' "event1" %}">
+			        {% csrf_token %}
+							&nbsp;&nbsp;<button type="submit" name="event1" value="Panchvi Pass" class="button_1">Register</button>
+			        </form>
+            </li>
+
+						<!-- 2 -->
+            <li>
+              <h3>Rangoli </h3>
+							<br>
+							<p><b> TIME :  10:00 am</p>
+              <p> VENUE :  </p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal2">DETAILS</button>
+    <div class="modal fade" id="myModal2" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+								<li>Bring Your Own Colours.</li>
+								<li>A team of two members are allowed. </li>
+								<li>>One hour will be given for this competition.</li>
+								<li>Use of aids to carry out designs is strictly prohibited.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Dalvir &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9815518904</td>
+								</tr>
+								<tr>
+									<td>Cherry &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9814801416</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event2" %}">
+{% csrf_token %}
+&nbsp;&nbsp;<button type="submit" name="event2" value="Rangoli" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 3 -->
+            <li>
+              <h3>Dance </h3>
+							<br>
+							<p><b> TIME :  on the day of event</p>
+              <p> VENUE : Physics Auditorium </p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal3">DETAILS</button>
+    <div class="modal fade" id="myModal3" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li>Minimum time for group performance should be 4 mins and maximum time of group performance should be 10 mins only.</li>
+<li>
+	For solo performance/ duet performance minimum time is 3 mins.</li>
+<li> For the group performance not more than 10 persons in the group are allowed.</li>
+<li> Use of props is allowed but the participants have to bring their own props and costumes. No props or costumes shall be provided
+	from the organizers side.</li>
+<li> Choice of songs is open to participants. </li>
+<li> Obscene/vulgar performance will lead to disqualification </li>
+<li> Team should bring their own pendrives.</li>
+<li> Decision of judges will be final and binding.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Nancy &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9115830642</td>
+								</tr>
+								<tr>
+									<td>Ramandeep Kaur Bedi &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9459879969</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event3" %}">
+{% csrf_token %}
+&nbsp;&nbsp;<button type="submit" name="event3" value="Dance" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 4 -->
+            <li>
+              <h3>Skit/Nukad Natak </h3>
+							<br>
+							<p><b> TIME :  on the day of event</p>
+              <p> VENUE :  Physics Auditorium</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal4">DETAILS</button>
+    <div class="modal fade" id="myModal4" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li>More than five participants per team are mandatory.</li>
+<li> Use of makeup and mikes are not allowed. </li>
+<li> Props allowed. </li>
+<li> Props will be not provided by the institute. </li>
+<li> Use of any electronic gadget , fire , smoke machine or bulky props are not allowed .</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Silky &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8146749194</td>
+								</tr>
+								<tr>
+									<td>Richa &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9988718189</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event4" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event4" value="Skit/Nukad Natak" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 5 -->
+            <li>
+              <h3>Ad-Mad </h3>
+							<br>
+							<p><b> TIME : on the day of event </p>
+              <p> VENUE : Physics Auditorium </p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal5">DETAILS</button>
+    <div class="modal fade" id="myModal5" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li>It is a team event. Each team should have 3-5 members only.</li>
+<li> Topics would be provided on the spot.</li>
+<li> 20 minutes preparation time for each team.</li>
+<li>Time limit for the performing the advertisement is 5 minutes. </li>
+<li>Participants shall be judged on the basis of spontaneity, content, relevance to the topic, on-stage presentation, coordination
+	and overall appeal of the advertisement.</li>
+<li> The caution should be taken to refrain from displaying obscenity, violence, prejudice, defamation etc. in Advertisement.</li>
+<li>Decision of the judges will be final and binding</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Sandeep &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9780588725</td>
+								</tr>
+								<tr>
+									<td>Navneet &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 7508125499</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event5" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event5" value="Ad-Mad" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 6 -->
+            <li>
+              <h3>Caption the Picture</h3>
+							<br>
+							<p><b> TIME :  12:30 pm</p>
+              <p> VENUE :  R.No. 308</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal6">DETAILS</button>
+    <div class="modal fade" id="myModal6" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+									<li>No Technical Help.</li>
+									<li> Time Limit (20 min MAX).</li>
+									<li> Picture will be Display on the spot. </li>
+									<li> Only individual entries allowed.</li>
+									<li>Bring your own stationary.</li>
+							 </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Shelly &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8427456227</td>
+								</tr>
+								<tr>
+									<td>Niraj Rana &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8894806312</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event6" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event6" value="Caption the Picture" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 7 -->
+             <li>
+              <h3>Miss and Mr. Epsilon </h3>
+							<br>
+							<p><b> TIME : on the day of event</p>
+              <p> VENUE : Physics Auditorium</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal7">DETAILS</button>
+    <div class="modal fade" id="myModal7" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> The participation of one boy and one girl per college is allowed.</li>
+<li> The contest will take place in two rounds. The first being the corporate modelling and second a questionnaire.</li>
+<li>Obscenity of any kind will lead to immediate disqualification.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Jaspreet &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8699274114</td>
+								</tr>
+								<tr>
+									<td> Moon &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9501011771</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event7" %}">
+{% csrf_token %}
+&nbsp;&nbsp;<button type="submit" name="event7" value="Miss and Mr. Epsilon" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 8 -->
+            <li>
+              <h3>Treasure Hunt </h3>
+							<br>
+							<p><b> TIME : 11:00 am</p>
+              <p> VENUE :  PU</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal8">DETAILS</button>
+    <div class="modal fade" id="myModal8" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> A Team of 2 Members Allowed. </li>
+<li> The Teams will have to play the game at each level in minimum time to qualify for the next level. </li>
+<li> After completion of a level, teams will be given clues to crack and move to the next level. </li>
+<li> After each level , the team which comes last will be eliminated. </li>
+<li> The Team members will not be allowed to carry cash. </li>
+<li> Use of vehicles is prohibited. </li>
+<li> Phone Camera clicked pics are only acceptable. </li>
+<li> The Team which will unearth the hidden treasures after completing all the levels will be the winning team.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Amrit &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9318636000</td>
+								</tr>
+								<tr>
+									<td> Gamini &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9501832377</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event8" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event8" value="Treasure Hunt" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 9 -->
+            <li>
+              <h3>Theme Photography </h3>
+							<br>
+							<p><b> TIME :  10:30 am</p>
+              <p> VENUE : Department Entrance</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal9">DETAILS</button>
+    <div class="modal fade" id="myModal9" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> Topic on the spot. </li>
+<li> Time Limit will be given. </li>
+<li> No Camera specifications i.e. Phone cameras are allowed. </li>
+<li> Submission will not be accepted after the deadline has met. </li>
+<li> No filters, no borders or logos or no advanced settings. </li>
+<li> Individual entries. </li>
+<li> You can click multiple photos but you have to submit just one.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Abhilav &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 7062000013</td>
+								</tr>
+								<tr>
+									<td> Mehak &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9501698541</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event9" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event9" value="Theme Photography" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 10 -->
+</ul>
+          <h1 class="page-title"> TECHNICAL EVENTS </h1>
+          <ul id="services">
+            <li>
+              <h3>Coding </h3>
+							<br>
+							<p><b> TIME : 10:00 am</p>
+              <p> VENUE :  Lab 1st</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal10">DETAILS</button>
+    <div class="modal fade" id="myModal10" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> Only one team per college and two participants per team. </li>
+<li> The aptitude test will be conducted if the participants will be more. </li>
+<li> The coding will be allowed in C++/JAVA. </li>
+<li> Time bound will be 30 mins. </li>
+<li> First correct code will be given weightage.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Gursimran &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8950848075</td>
+								</tr>
+								<tr>
+									<td> Sarabjit &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9464947484</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event10" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event10" value="Coding" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!--11 -->
+            <li>
+              <h3>Web Development </h3>
+							<br>
+							<p><b> TIME : 10:30 am</p>
+              <p> VENUE :  Lab 2nd</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal11">DETAILS</button>
+    <div class="modal fade" id="myModal11" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+											<li> Maximum of 2 participants are allowed in a team. A single participant is also allowed.</li>
+											<li> The participants will be given computers with no internet access allowed.</li>
+											<li> The topic will be given on the spot. Pictures will be provided.</li>
+											<li> The time limit for the event will be 45 minutes.</li>
+											<li> Website development using HTML/CSS.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Ankit &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9915797553</td>
+								</tr>
+								<tr>
+									<td>Neeraj Chauhan &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9115121034</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event11" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event11" value="Web Development" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!--12 -->
+            <li>
+              <h3>Debugging </h3>
+							<br>
+							<p><b> TIME :  11:00 am</p>
+              <p> VENUE :  R.No. 308</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal12">DETAILS</button>
+    <div class="modal fade" id="myModal12" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> Individual Participation. </li>
+<li> Time limit will be there. </li>
+<li> There will be 2 rounds:- 1. Non-Technical (aptitude). 2. Technical.
+</li>
+<li> Code will be given in C/JAVA.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Deepak Jain &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9467012482</td>
+								</tr>
+								<tr>
+									<td> Salony &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9780647766</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event12" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event12" value="Debugging" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 13 -->
+            <li>
+              <h3>Mock Placement </h3>
+							<br>
+							<p><b> TIME : 11:00 am</p>
+              <p> VENUE :  R.No. 309</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal13">DETAILS</button>
+    <div class="modal fade" id="myModal13" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> There will be 3 rounds:-1. Aptitude 2. Technical 3. PI </li>
+<li> Get your own stationary. </li>
+<li> No calculators or smart watches or phones allowed. </li>
+<li> Individual entries. </li>
+<li> Come into Formals.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Ramanpreet &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8427456227</td>
+								</tr>
+								<tr>
+									<td> Manit &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9988885532</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event13" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event13" value="Mock Placement" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 14 -->
+            <li>
+              <h3>IT Quiz </h3>
+							<br>
+							<p><b> TIME :  11:00 am</p>
+              <p> VENUE :  R.No. 307</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal14">DETAILS</button>
+    <div class="modal fade" id="myModal14" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> Only one team per college and two participants per team. </li>
+<li> The event will comprise of two rounds: Preliminary and Final.
+</li>
+<li> The preliminary round will consist of 45 questions. The details regarding the same will be delivered on the spot.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Shanu &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8727010295</td>
+								</tr>
+								<tr>
+									<td> Avinashi &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9878958300</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event14" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event14" value="IT Quiz" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 15 -->
+            <li>
+              <h3> E-Collage</h3>
+							<br>
+							<p><b> TIME : 12:00 pm</p>
+              <p> VENUE :  Lab 2nd</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal15">DETAILS</button>
+    <div class="modal fade" id="myModal15" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> One team 2 participants. </li>
+<li> Topic will be given on the spot. </li>
+<li> Tools to be used- photoshop or coreldraw. </li>
+<li> 15 min to download the pictures related to the theme. </li>
+<li> 30 min to make the collage.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Sumandeep &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8427108257</td>
+								</tr>
+								<tr>
+									<td> Lakhan &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8285786876</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event15" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event15" value="E-Collage" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 16 -->
+            <li>
+              <h3>LAN Gaming </h3>
+							<br>
+							<p><b> TIME : 11:30 am</p>
+              <p> VENUE :  Lab 3rd</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal16">DETAILS</button>
+    <div class="modal fade" id="myModal16" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> There will be 3 rounds. </li>
+<li> 3rd one is surprise. It can be any game. </li>
+<li> 1st round – racing Game and then shooting game. </li>
+<li>Only Individual participation is allowed.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Sushant &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9478878905</td>
+								</tr>
+								<tr>
+									<td> Harmanpreet Singh &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9478878905 </td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event16" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event16" value="LAN Gaming" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 17 -->
+            <li>
+              <h3> Story Telling (Figment of Imagination) </h3>
+							<br>
+							<p><b> TIME : 12:00 pm</p>
+              <p> VENUE : R.No.307</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal17">DETAILS</button>
+    <div class="modal fade" id="myModal17" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> 4 keywords will be given on the spot. </li>
+<li> You have to use all four in your story. </li>
+<li> If any of the keyword is not present in your story you will be disqualified. </li>
+<li> You will get 4 min to think and 7 min to write story. </li>
+<li> Decision by judges should be final.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Meenakshi &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8872432019</td>
+								</tr>
+								<tr>
+									<td>Monika Parcha &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 9592475992</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event17" %}">
+	{% csrf_token %}
+	&nbsp;&nbsp;<button type="submit" name="event17" value="Story Telling (Figment of Imagination)" class="button_1">Register</button>
+</form>
+            </li>
+
+						<!-- 18 -->
+            <li>
+              <h3> PPT Ka Dum </h3>
+							<br>
+							<p><b> TIME : 11:30 am</p>
+              <p> VENUE : Lab 1st</p>
+							<br>
+<!-- start here -->
+<div class="container">
+    <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#myModal18">DETAILS</button>
+    <div class="modal fade" id="myModal18" role="dialog"> <div class="modal-dialog">
+            <div class="modal-content"> <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>DETAILS</h4>
+                </div>
+                <div class="modal-body">
+                    <ol type="1" id="rules">
+<li> Topic should be given on the spot. </li>
+<li> 30 mins will be provided for making your ppt. </li>
+<li> No net will be provided. </li>
+<li> 10 pics related to topic will be given on your pc. </li>
+<li> After making ppt in 5 min you have to explain it.</li>
+                    </ol>
+										<br>
+               <span id="coordinator"> COORDINATORS </span><br>
+							<table cellspacing="5px">
+								<tr>
+									<td>Nirupma &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 8195867461</td>
+								</tr>
+								<tr>
+									<td>Tanvi &nbsp;</td>
+									<td> - </td>
+									<td>&nbsp; 7696549115</td>
+								</tr>
+							</table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div> </div> </div> </div> </div>
+<!-- end here -->
+
+<br>
+
+<form method="post" action="{% url 'save_record' "event18" %}">
+	{% csrf_token %}
+&nbsp;&nbsp;	<button type="submit" name="event18" value="PPT Ka Dum" class="button_1">Register</button>
+</form>
+            </li>
+          </ul>
+        </article>
+      </div>
+
+    </section>
+
+
+    <footer>
+      DEPARTMENT OF COMPUTER SCIENCE AND APPLICATIONS (DCSA)<br>
+			PANJAB UNIVERSITY CHANDIGARH
+    </footer>
+
+  </body>
+</html>

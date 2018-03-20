@@ -1,0 +1,83 @@
+{% if message %}
+<script>
+	alert('{{ message }}');
+</script>
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% load static %}
+    <link rel="stylesheet" href="{% static 'css/form_style.css'%}">
+		<link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <title>Login Form</title>
+
+
+
+</head>
+
+<body style="background-color:#ffffff">
+	<header>
+		<div class="container">
+			<div id="branding">
+				<h1> <span class="highlight">EPSILON</span> 2k18</h1>
+			</div>
+			<nav>
+				<ul>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'events' %}">Events</a></li>
+          <li><a href="{% url 'registrationform' %}">Register</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+    <div class="contain">
+        <h1 class="brand">
+            <span>LOGIN</span> FORM</h1>
+        <div class="wrapper">
+            <div class="contact-info p-3" style="background:#5654a2;">
+            </div>
+
+            <div class="contact" style="background:white;">
+                <form method="post" action="{% url 'postlogin' %}">
+				        {% csrf_token %}
+                    <p class="res">
+                        <label for="email">Email</label>
+                        <input type="email" placeholder = "Enter your email" name="email" required>
+                    </p>
+                    <p class="res">
+                        <label for="password">Password</label>
+                        <input type="password" placeholder="Enter your password" name="password" required>
+                    </p>
+                    <br>
+                    <br>
+
+                    <!--<p class="full" >
+                                <label for="adress">Adress</label>
+                                <input type="text" value="Enter your adress"  name="adress" >
+                            </p>-->
+
+                    <p class="full">
+                        <button type="submit">LOGIN</button>
+                    </p>
+
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+		<footer>
+			DEPARTMENT OF COMPUTER SCIENCE AND APPLICATIONS (DCSA)<br>
+			PANJAB UNIVERSITY CHANDIGARH
+    </footer>
+
+</body>
+
+</html>
